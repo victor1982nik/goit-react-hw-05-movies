@@ -1,3 +1,14 @@
+import axios from 'axios';
+
+const API_KEY = '368aa8eefea213f2e59844c75600bcb3';
+const URL = 'https://api.themoviedb.org/3';
+
+export const fetchTrendingMovies = () => {
+    return axios.get(`${URL}/trending/all/day?api_key=${API_KEY}`);
+  };
+
+
+  
 /*
 //const API_KEY = 'https://api.themoviedb.org/3/movie/550?api_key=368aa8eefea213f2e59844c75600bcb3'
 
