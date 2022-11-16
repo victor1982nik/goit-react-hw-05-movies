@@ -1,10 +1,11 @@
 import { Route, Routes, NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-import { FilmList } from './FilmList/FilmList';
+//import { FilmList } from './FilmList/FilmList';
 import { Home } from './pages/Home';
+import { ProductDetails } from './pages/ProductsDetails';
 import { Movies } from './pages/Movies';
 
-const StyledLink = styled(NavLink)`
+const Link = styled(NavLink)`
   color: black;
 
   &.active {
@@ -17,21 +18,14 @@ export const App = () => {
     <>
       <header>
         <nav>
-          <StyledLink to="/" end>
-            Home
-          </StyledLink>
-          <StyledLink to="/movies">Movies</StyledLink>
+          <Link to="/">Home</Link>
+          <Link to="/movies">Movies</Link>
         </nav>
       </header>
       <Routes>
-        <Route path="/" element={<Home />}>
-          <Route index element={<FilmList />}/>
-          <Route path="/movies" element={<Movies />} />
-          <Route path="/movies/:id" element={null} >
-            <Route path="cast" element={<Movies />} />
-            <Route path="reviews" element={<Movies />} />
-          </Route>
-        </Route>
+        <Route path="/" element={<Home />} />
+        <Route path="/movies" element={<Movies />} />
+        <Route path="/movies/:id" element={<ProductDetails />} />
       </Routes>
     </>
   );
