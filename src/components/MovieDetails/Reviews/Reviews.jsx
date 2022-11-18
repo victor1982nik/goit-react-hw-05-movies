@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { Box } from 'components/Box/Box';
-import { fetchMovieReviewsById } from 'components/fetchData';
+import { fetchMovieReviewsById } from 'components/Api/fetchData';
 
 //const BASE_PICTURE_PATH = 'https://image.tmdb.org/t/p/w500';
 

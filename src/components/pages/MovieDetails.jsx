@@ -1,4 +1,4 @@
-import { fetchMovieById } from 'components/fetchData';
+import { fetchMovieById } from 'components/Api/fetchData';
 import { Box } from 'components/Box/Box';
 import { useState, useEffect } from 'react';
 import { NavLink, Outlet, useParams } from 'react-router-dom';

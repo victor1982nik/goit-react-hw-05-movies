@@ -1,4 +1,4 @@
-import { fetchTrendingMovies } from 'components/fetchData';
+import { fetchTrendingMovies } from 'components/Api/fetchData';
 import { Box } from 'components/Box/Box';
 import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
