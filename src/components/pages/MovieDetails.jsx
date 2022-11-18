@@ -1,4 +1,4 @@
-import { fetchMovieById } from 'components/Api/fetchData';
+import { fetchMovieById } from 'components/fetchData';
 import { Box } from 'components/Box/Box';
 import { useState, useEffect } from 'react';
 import { NavLink, Outlet, useParams } from 'react-router-dom';
@@ -9,30 +9,25 @@ export const MovieDetails = () => {
   //const [genres, setGenres] = useState([]);
   const { id } = useParams();
   useEffect(() => {
-    fetchMovieById(id).then(res => setMovie(res.data));    
+    fetchMovieById(id).then(res => setMovie(res.data));
   }, [id]);
-   //useEffect(()=>{
-    
-    //  if(movie) {
-    //   const genres = movie?.genres.map(genre => genre.name);
-    //   console.log(genres);
-    //  }
-     
-   //},[movie])
+  //useEffect(()=>{
+
+  //  if(movie) {
+  //   const genres = movie?.genres.map(genre => genre.name);
+  //   console.log(genres);
+  //  }
+
+  //},[movie])
 
   //console.log(movie.data);
   // const pict = BASE_PICTURE_PATH + movie?.data?.poster_path;
-  
 
   //const genres = movie?.genres.map(genre => genre.name)
   return (
     <main>
-      <Box display='flex'>
-        <img
-          src={BASE_PICTURE_PATH + movie?.poster_path}
-          alt=""
-          width="250"
-        />
+      <Box display="flex">
+        <img src={BASE_PICTURE_PATH + movie?.poster_path} alt="" width="250" />
         <div>
           <h2>{movie?.original_title}</h2>
           <p>User score: {movie?.vote_average}</p>
@@ -42,13 +37,12 @@ export const MovieDetails = () => {
           <p>{movie?.genres?.name}</p>
         </div>
       </Box>
-      <Box display='flex' flexDirection='column'>
+      <Box display="flex" flexDirection="column">
         <p>Additional information</p>
-        <NavLink to='cast'>Cast</NavLink>
-        <NavLink to='reviews'>Reviews</NavLink>
+        <NavLink to="cast">Cast</NavLink>
+        <NavLink to="reviews">Reviews</NavLink>
       </Box>
       <Outlet />
-      
     </main>
   );
 };

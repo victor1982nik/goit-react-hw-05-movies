@@ -1,4 +1,4 @@
-import { fetchTrendingMovies } from 'components/Api/fetchData';
+import { fetchTrendingMovies } from 'components/fetchData';
 import { Box } from 'components/Box/Box';
 import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
@@ -13,9 +13,9 @@ export const Home = () => {
 
   return (
     <main>
-      <Box display='flex' flexDirection='column'>
+      <Box display="flex" flexDirection="column">
         {movies.map(({ id, original_title }) => (
-          <NavLink key={id} to={`movies/${id}`}> 
+          <NavLink key={id} to={`movies/${id}`}>
             {original_title}
           </NavLink>
         ))}
