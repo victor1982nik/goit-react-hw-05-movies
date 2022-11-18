@@ -1,9 +1,11 @@
 import { useParams } from 'react-router-dom';
+import { fetchMovieById } from 'components/Api/fetchData';
 //import { getProductById } from '../fakeAPI';
 
 export const ProductDetails = () => {
   const { id } = useParams();
-  //const product = getProductById(id);
+  const product = fetchMovieById(id);
+  console.log(product);
   return (
     <main>
       <img src="https://via.placeholder.com/960x240" alt="" />

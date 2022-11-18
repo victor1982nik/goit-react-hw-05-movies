@@ -1,4 +1,5 @@
 import { fetchTrendingMovies } from 'components/Api/fetchData';
+import { Box } from 'components/Box/Box';
 import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 
@@ -8,17 +9,17 @@ export const Home = () => {
     fetchTrendingMovies().then(r => setMovies(r.data.results));
   }, []);
 
-  console.log(movies);
+  //console.log(movies);
 
   return (
     <main>
-      <div>
+      <Box display='flex' flexDirection='column'>
         {movies.map(({ id, original_title }) => (
-          <NavLink key={id} to={id}>
+          <NavLink key={id} to={`movies/${id}`}> 
             {original_title}
           </NavLink>
         ))}
-      </div>
+      </Box>
     </main>
   );
 };
