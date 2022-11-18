@@ -4,18 +4,18 @@ const API_KEY = '368aa8eefea213f2e59844c75600bcb3';
 const URL = 'https://api.themoviedb.org/3';
 
 export const fetchTrendingMovies = () => {
-    return axios.get(`${URL}/trending/all/day?api_key=${API_KEY}`);
-  };
+  return axios.get(`${URL}/trending/all/day?api_key=${API_KEY}`);
+};
 
-export const fetchMovieById = (id) => {
+export const fetchMovieById = id => {
   return axios.get(`${URL}/movie/${id}?api_key=${API_KEY}`);
 };
-  
-export const fetchMovieCastById = (id) => {
+
+export const fetchMovieCastById = id => {
   return axios.get(`${URL}/movie/${id}/credits?api_key=${API_KEY}`);
 };
 
-export const fetchMovieReviewsById = (id) => {
+export const fetchMovieReviewsById = id => {
   return axios.get(`${URL}/movie/${id}/reviews?api_key=${API_KEY}&page=1`);
 };
 
