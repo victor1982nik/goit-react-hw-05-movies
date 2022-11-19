@@ -19,6 +19,12 @@ export const fetchMovieReviewsById = id => {
   return axios.get(`${URL}/movie/${id}/reviews?api_key=${API_KEY}&page=1`);
 };
 
+export const fetchQuery = query => {
+  return axios.get(
+    `${URL}/search/movie?api_key=${API_KEY}&page=1&query=${query}`
+  );
+};
+
 /*
 //const API_KEY = 'https://api.themoviedb.org/3/movie/550?api_key=368aa8eefea213f2e59844c75600bcb3'
 
