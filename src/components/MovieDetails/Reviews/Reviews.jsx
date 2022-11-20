@@ -2,20 +2,32 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { Box } from 'components/Box/Box';
 import { fetchMovieReviewsById } from 'components/Api/fetchData';
-
-//const BASE_PICTURE_PATH = 'https://image.tmdb.org/t/p/w500';
+import { Loader } from 'components/Loader/Loader';
 
 export const Reviews = () => {
-  const [reviews, setReviews] = useState({});
+  const [reviews, setReviews] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const { id } = useParams();
-  useEffect(() => {
-    fetchMovieReviewsById(id).then(res => setReviews(res.data.results));
-  }, [id]);
 
-  console.log(reviews);
+  useEffect(() => {
+    const getReviewstById = async id => {
+      try {
+        setIsLoading(true);
+        const res = await fetchMovieReviewsById(id);
+        setReviews(res.data.results);
+        console.log(res.data.results);
+      } catch (error) {
+        console.log(error.message);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    getReviewstById(id);
+  }, [id]);
 
   return (
     <Box>
+      {isLoading && <Loader />}
       {reviews.length > 0 &&
         reviews.map(({ id, author, content }) => {
           return (
@@ -25,7 +37,9 @@ export const Reviews = () => {
             </Box>
           );
         })}
-      hello
+      {reviews.length === 0 && (
+        <Box>We don't have any reviews for this movie.</Box>
+      )}
     </Box>
   );
 };

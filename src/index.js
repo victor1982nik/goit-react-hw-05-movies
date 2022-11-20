@@ -9,11 +9,10 @@ import { ThemeProvider } from 'styled-components';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter >
+    <BrowserRouter basename="/goit-react-hw-05-movies">
       <ThemeProvider theme={theme}>      
         <App />
       </ThemeProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
-//basename="/goit-react-hw-05-movies/"
