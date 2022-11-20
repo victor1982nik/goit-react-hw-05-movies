@@ -5,7 +5,7 @@ import { fetchMovieCastById } from 'components/Api/fetchData';
 import { Loader } from 'components/Loader/Loader';
 import { CastCard } from './CastCard';
 
-export const Cast = () => {
+const Cast = () => {
   const [cast, setCast] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -33,3 +33,5 @@ export const Cast = () => {
     </Box>
   );
 };
+
+export default Cast;

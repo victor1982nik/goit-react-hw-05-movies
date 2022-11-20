@@ -4,7 +4,7 @@ import { Box } from 'components/Box/Box';
 import { fetchMovieReviewsById } from 'components/Api/fetchData';
 import { Loader } from 'components/Loader/Loader';
 
-export const Reviews = () => {
+export default function Reviews() {
   const [reviews, setReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const { id } = useParams();
@@ -42,4 +42,4 @@ export const Reviews = () => {
       )}
     </Box>
   );
-};
+}

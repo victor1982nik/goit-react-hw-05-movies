@@ -1,11 +1,11 @@
+import { useState, useEffect, Suspense } from 'react';
+import { NavLink, Outlet, useParams } from 'react-router-dom';
 import { fetchMovieById } from 'components/Api/fetchData';
 import { Box } from 'components/Box/Box';
 import { Loader } from 'components/Loader/Loader';
 import { MovieCard } from 'components/MovieDetails/MovieCard/MovieCard';
-import { useState, useEffect } from 'react';
-import { NavLink, Outlet, useParams } from 'react-router-dom';
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
   const [movie, setMovie] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -38,9 +38,13 @@ export const MovieDetails = () => {
             <NavLink to="cast">Cast</NavLink>
             <NavLink to="reviews">Reviews</NavLink>
           </Box>
-          <Outlet />
+          <Suspense fallback={<div>Loading subpage...</div>}>
+            <Outlet />
+          </Suspense>
         </Box>
       )}
     </main>
   );
 };
+
+export default MovieDetails;

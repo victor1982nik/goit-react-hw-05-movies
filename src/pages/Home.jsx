@@ -4,7 +4,7 @@ import { Loader } from 'components/Loader/Loader';
 import { MoviesList } from 'components/MoviesList/MoviesList';
 import { useState, useEffect } from 'react';
 
-export const Home = () => {
+const Home = () => {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -36,3 +36,5 @@ export const Home = () => {
     </main>
   );
 };
+
+export default Home;
