@@ -8,14 +8,14 @@ export default function Reviews() {
   const [reviews, setReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const { id } = useParams();
-
+  
   useEffect(() => {
     const getReviewstById = async id => {
       try {
         setIsLoading(true);
-        const res = await fetchMovieReviewsById(id);
+        const res = await fetchMovieReviewsById(Number(id));
         setReviews(res.data.results);
-        console.log(res.data.results);
+        //console.log(res.data.results);
       } catch (error) {
         console.log(error.message);
       } finally {
@@ -31,8 +31,8 @@ export default function Reviews() {
       {reviews.length > 0 &&
         reviews.map(({ id, author, content }) => {
           return (
-            <Box key={id}>
-              <p>Author: {author}</p>
+            <Box key={id} ml={5}>
+              <Box fontWeight="bold">Author: {author}</Box>
               <p> {content}</p>
             </Box>
           );

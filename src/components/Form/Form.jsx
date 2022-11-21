@@ -1,7 +1,9 @@
+import { Input } from "components/Styles/slyles";
+
 export const Form = ({ onSubmit }) => {
   return (
     <form onSubmit={onSubmit}>
-      <input
+      <Input            
         type="text"
         name="query"
         autoComplete="off"

@@ -1,4 +1,5 @@
 import { fetchQuery } from 'components/Api/fetchData';
+import { Box } from 'components/Box/Box';
 import { Form } from 'components/Form/Form';
 import { Loader } from 'components/Loader/Loader';
 import { MoviesList } from 'components/MoviesList/MoviesList';
@@ -14,12 +15,12 @@ const Movies = () => {
   useEffect(() => {
     if (query === null || query === '') return;
     //console.log(query);
-    const getFilmsByQuery = async id => {
+    const getFilmsByQuery = async () => {
       try {
         setIsLoading(true);
         const res = await fetchQuery(query);
         setMovies(res.data.results);
-        console.log(res.data.results);
+        //console.log(res.data.results);
       } catch (error) {
         console.log(error.message);
       } finally {
@@ -41,9 +42,11 @@ const Movies = () => {
 
   return (
     <main>
-      <Form onSubmit={handlerFormSubmit}></Form>
-      {isLoading && <Loader />}
-      {movies.length > 0 && <MoviesList movies={movies} />}
+      <Box pt={3} pl={3}>
+        <Form onSubmit={handlerFormSubmit}></Form>
+        {isLoading && <Loader />}
+        {movies.length > 0 && <MoviesList movies={movies} />}
+      </Box>
     </main>
   );
 };

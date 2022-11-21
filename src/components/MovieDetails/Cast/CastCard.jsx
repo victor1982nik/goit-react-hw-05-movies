@@ -6,7 +6,7 @@ const DUMMY_IMAGE_100 =
 export const CastCard = ({ cast }) => {
   return cast.map(({ id, character, name, profile_path }) => {
     return (
-      <Box key={id}>
+      <Box key={id} ml={5}>
         <img
           src={
             profile_path ? BASE_PICTURE_PATH + profile_path : DUMMY_IMAGE_100
