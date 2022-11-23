@@ -38,8 +38,8 @@ const MovieDetails = () => {
           <Box display="flex" flexDirection="column">
             <p>Additional information</p>
             <ul>
-              <li><NavLink to="cast" state={{from: location.state.from}}>Cast</NavLink></li>
-              <li><NavLink to="reviews" state={{from: location.state.from}}>Reviews</NavLink></li>
+              <li><NavLink to="cast" state={{from: location?.state?.from}}>Cast</NavLink></li>
+              <li><NavLink to="reviews" state={{from: location?.state?.from}}>Reviews</NavLink></li>
             </ul>
           </Box>
           <Suspense fallback={<div>Loading subpage...</div>}>
